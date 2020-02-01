@@ -9,17 +9,3 @@ RUN sudo apt-get update \
   libsecret-1-dev \
   libnss3-dev \
  && sudo rm -rf /var/lib/apt/lists/*
-
-USER root
-
-RUN wget https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tgz \
-    && tar xzf Python-2.7.13.tgz \
-    && cd Python-2.7.13 \
-    && ./configure--prefix=/usr \
-            --enable-shared     \
-            --with-system-expat \
-            --with-system-ffi   \
-            --with-ensurepip=yes \
-            --enable-unicode=ucs4 \
-    && make install \
-    && make altinstall
